@@ -36,8 +36,9 @@ function resetVueVersion() {
 }
 
 async function copyLink() {
+  // 浏览器的剪贴板
   await navigator.clipboard.writeText(location.href);
-  alert("Sharable URL has been copied to clipboard.");
+  alert("链接已复制！");
 }
 
 function toggleDark() {
@@ -93,7 +94,7 @@ async function fetchVersions(): Promise<string[]> {
     <div class="links">
       <div class="version" @click.stop>
         <span class="active-version" @click="toggle">
-          Version: {{ activeVersion }}
+          版本: {{ activeVersion }}
         </span>
         <ul class="versions" :class="{ expanded }">
           <li v-if="!publishedVersions"><a>loading versions...</a></li>
